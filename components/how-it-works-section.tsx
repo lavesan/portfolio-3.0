@@ -4,11 +4,13 @@ import { useTranslations } from "@/hooks/use-translations";
 import { CTAButton } from "./cta-button";
 import { AnimatedSection } from "./animated-section";
 import {
-  ClipboardList,
+  MessageSquare,
+  Phone,
   CreditCard,
-  Users,
   FileText,
   CheckCircle2,
+  FileCheck,
+  Rocket,
 } from "lucide-react";
 
 export function HowItWorksSection() {
@@ -40,10 +42,8 @@ export function HowItWorksSection() {
 
     let endDay;
     if (currentDay <= Math.floor(daysInMonth / 2)) {
-      // If before middle of month, end at middle
       endDay = Math.floor(daysInMonth / 2);
     } else {
-      // If after middle of month, end at end of month
       endDay = daysInMonth;
     }
 
@@ -52,35 +52,39 @@ export function HowItWorksSection() {
 
   const steps = [
     {
-      icon: ClipboardList,
-      title: "Briefing Inicial",
-      description: "Você me conta sobre seu negócio e suas necessidades",
+      icon: MessageSquare,
+      title: "Você escolhe como prefere começar",
+      description:
+        "Pelo Chat: Preenche um fluxo interativo com perguntas sobre seu projeto. Rápido, direto ao ponto — e você já conhece meu processo por dentro.\n\nPor Reunião: Prefere conversar? A gente marca uma call de 30 a 40 minutos pra entender melhor sua ideia e tirar dúvidas pontuais.",
       delay: 200,
     },
     {
       icon: CreditCard,
-      title: "Pagamento",
-      description:
-        "Realiza o pagamento de R$ 197 (valor com desconto especial). Este valor será descontado do projeto final caso fechemos o negócio",
+      title: "Pagamento do Diagnóstico Técnico",
+      description: `R$ 197 (valor promocional até ${getPromotionEndDate()})\nEste valor será abatido do projeto completo caso sigamos juntos.\n\nAssim que o pagamento for confirmado, agendamos a reunião ou já começamos a análise com base no que você nos enviou.`,
       delay: 300,
     },
     {
-      icon: Users,
-      title: "Reunião de Alinhamento",
-      description:
-        "Conversa de 30-40 minutos para conhecer suas dores e objetivos",
-      delay: 400,
-    },
-    {
       icon: FileText,
-      title: "Material Detalhado",
-      description: "Recebe um documento completo com:",
+      title: "Recebimento do Diagnóstico Profissional",
+      description: "Você recebe um documento personalizado com:",
       items: [
         "Análise técnica do seu cenário ou ideia",
         "Sugestão de tecnologias e arquitetura",
         "Pontos de melhoria ou refatoração",
         "Estimativa de investimento e manutenção",
-        "Proposta formal com base no diagnóstico",
+        "Proposta formal baseada na análise",
+      ],
+      delay: 400,
+    },
+    {
+      icon: FileCheck,
+      title: "Fechamento do Projeto",
+      description: "Se decidirmos seguir juntos:",
+      items: [
+        "Eu preparo e envio um contrato formal com todos os detalhes alinhados",
+        "Após a assinatura, você realiza o pagamento inicial",
+        "Iniciamos o desenvolvimento do projeto, com total acompanhamento técnico e cronograma claro",
       ],
       delay: 500,
     },
@@ -110,46 +114,63 @@ export function HowItWorksSection() {
             {/* Timeline line */}
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border/50 hidden md:block"></div>
 
-            {steps.map((step, index) => (
-              <AnimatedSection key={index} delay={step.delay}>
-                <div
-                  className={`flex flex-col md:flex-row items-center mb-12 md:mb-16 last:mb-0 relative ${
-                    index % 2 === 0 ? "md:flex-row-reverse" : ""
-                  }`}
-                >
-                  {/* Icon container */}
-                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4 md:mb-0 md:mx-8 relative z-10">
-                    <step.icon className="w-8 h-8 text-accent" />
-                  </div>
-
-                  {/* Content */}
+            <div className="space-y-8">
+              {steps.map((step, index) => (
+                <AnimatedSection key={index} delay={step.delay}>
                   <div
-                    className={`flex-1 text-center md:text-left ${
-                      index % 2 === 0 ? "md:text-right" : ""
+                    className={`flex flex-col md:flex-row items-center relative ${
+                      index % 2 === 0 ? "md:flex-row-reverse" : ""
                     }`}
                   >
-                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground mb-4">
-                      {step.description}
-                    </p>
+                    {/* Icon container */}
+                    <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4 md:mb-0 md:mx-8 relative z-10">
+                      <step.icon className="w-8 h-8 text-accent" />
+                    </div>
 
-                    {step.items && (
-                      <ul className="space-y-2 text-left">
-                        {step.items.map((item, itemIndex) => (
-                          <li
-                            key={itemIndex}
-                            className="flex items-start gap-2"
-                          >
-                            <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    {/* Content */}
+                    <div
+                      className={`flex-1 ${
+                        index % 2 === 0 ? "md:text-right" : ""
+                      }`}
+                    >
+                      <div className="bg-card/80 backdrop-blur-sm p-6 rounded-lg border border-border/50 shadow-lg">
+                        <h3 className="text-xl font-bold mb-4">{step.title}</h3>
+
+                        <div className="space-y-4">
+                          <p className="text-muted-foreground whitespace-pre-line">
+                            {step.description}
+                          </p>
+
+                          {step.items && (
+                            <div className="bg-accent/5 rounded-lg p-4">
+                              <ul
+                                className={`space-y-3 ${
+                                  index % 2 === 0 ? "md:text-right" : ""
+                                }`}
+                              >
+                                {step.items.map((item, itemIndex) => (
+                                  <li
+                                    key={itemIndex}
+                                    className={`flex items-start gap-3 ${
+                                      index % 2 === 0
+                                        ? "md:flex-row-reverse"
+                                        : ""
+                                    }`}
+                                  >
+                                    <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                                    <span>{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </AnimatedSection>
-            ))}
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
 
           {/* Price and CTA */}
@@ -165,14 +186,15 @@ export function HowItWorksSection() {
                 ⚡ Preço especial válido até {getPromotionEndDate()}!
               </p>
               <p className="text-sm text-muted-foreground mb-6">
-                Este valor é descontado do projeto final caso fechemos o negócio
+                Este valor é descontado do projeto final caso fechemos o
+                negócio!
               </p>
               <CTAButton
                 typebotUrl="https://typebot.io/seu-typebot"
                 className="bg-accent hover:bg-accent/90"
               >
                 <span className="flex items-center gap-2">
-                  <FileText className="h-5 w-5" />
+                  <Rocket className="h-5 w-5" />
                   <span>Começar Agora</span>
                 </span>
               </CTAButton>
