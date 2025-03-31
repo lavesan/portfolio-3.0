@@ -1,26 +1,28 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter, Playfair_Display } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { TranslationsProvider } from "@/hooks/use-translations"
-import Script from "next/script"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { TranslationsProvider } from "@/hooks/use-translations";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
-})
+});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
-})
+});
 
 export const metadata: Metadata = {
   title: "Desenvolvimento sob medida para negócios que não podem errar",
-  description: "Sites, sistemas e apps pensados para escalar com eficiência — sem amadorismo, sem gambiarra.",
+  description:
+    "Sites, sistemas e apps pensados para escalar com eficiência — sem amadorismo, sem gambiarra.",
   openGraph: {
     title: "Desenvolvimento sob medida para negócios que não podem errar",
-    description: "Sites, sistemas e apps pensados para escalar com eficiência — sem amadorismo, sem gambiarra.",
+    description:
+      "Sites, sistemas e apps pensados para escalar com eficiência — sem amadorismo, sem gambiarra.",
     url: "https://seudominio.com.br",
     siteName: "Desenvolvimento Web Premium",
     images: [
@@ -38,20 +40,24 @@ export const metadata: Metadata = {
     "desenvolvimento web, desenvolvimento sob medida, sistemas personalizados, aplicativos, desenvolvimento premium, desenvolvimento profissional",
   robots: "index, follow",
   authors: [{ name: "Valdery Alves" }],
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   // IDs das ferramentas de analytics
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX"
-  const fbPixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "XXXXXXXXXXXXXXXXX"
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX";
+  const fbPixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "XXXXXXXXXXXXXXXXX";
 
   return (
-    <html lang="pt-BR" className={`${inter.className} ${playfair.variable}`} suppressHydrationWarning>
+    <html
+      lang="pt-BR"
+      className={`${inter.className} ${playfair.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         {/* Google Tag Manager */}
         <Script id="gtm" strategy="afterInteractive">
@@ -102,9 +108,7 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
 
-
-
-import './globals.css'
+import "./globals.css";

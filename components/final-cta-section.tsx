@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { CTAButton } from "./cta-button"
-import { useTranslations } from "@/hooks/use-translations"
-import { FileText } from "lucide-react"
-import { AnimatedSection } from "./animated-section"
+import { CTAButton } from "./cta-button";
+import { useTranslations } from "@/hooks/use-translations";
+import { FileText } from "lucide-react";
+import { AnimatedSection } from "./animated-section";
 
 export function FinalCTASection() {
-  const { t } = useTranslations()
+  const { t } = useTranslations();
 
   return (
     <section className="py-20 futuristic-bg">
@@ -14,15 +14,21 @@ export function FinalCTASection() {
       <div className="container mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">{t("cta.title")}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+              {t("cta.title")}
+            </h2>
           </AnimatedSection>
 
           <AnimatedSection delay={100}>
-            <p className="text-lg mb-6 text-muted-foreground">{t("cta.paragraph1")}</p>
+            <p className="text-lg mb-6 text-muted-foreground">
+              {t("cta.paragraph1")}
+            </p>
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
-            <p className="text-lg mb-10 text-muted-foreground">{t("cta.paragraph2")}</p>
+            <p className="text-lg mb-10 text-muted-foreground">
+              {t("cta.paragraph2")}
+            </p>
           </AnimatedSection>
 
           <AnimatedSection delay={300}>
@@ -39,6 +45,5 @@ export function FinalCTASection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

@@ -5,16 +5,21 @@ import { CTAButton } from "./cta-button";
 import { AnimatedSection } from "./animated-section";
 import {
   MessageSquare,
-  Phone,
   CreditCard,
   FileText,
   CheckCircle2,
   FileCheck,
   Rocket,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
-export function HowItWorksSection() {
+export interface HowItWorksSectionProps {
+  forcedLocale?: "pt-BR" | "en";
+}
+
+export function HowItWorksSection({ forcedLocale }: HowItWorksSectionProps) {
   const { t } = useTranslations();
+  const isBrazil = forcedLocale ? forcedLocale === "pt-BR" : true;
 
   const getPromotionEndDate = () => {
     const today = new Date();
@@ -25,20 +30,36 @@ export function HowItWorksSection() {
       currentMonth + 1,
       0
     ).getDate();
-    const monthNames = [
-      "janeiro",
-      "fevereiro",
-      "março",
-      "abril",
-      "maio",
-      "junho",
-      "julho",
-      "agosto",
-      "setembro",
-      "outubro",
-      "novembro",
-      "dezembro",
-    ];
+    const monthNames = {
+      pt: [
+        "janeiro",
+        "fevereiro",
+        "março",
+        "abril",
+        "maio",
+        "junho",
+        "julho",
+        "agosto",
+        "setembro",
+        "outubro",
+        "novembro",
+        "dezembro",
+      ],
+      en: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
+    };
 
     let endDay;
     if (currentDay <= Math.floor(daysInMonth / 2)) {
@@ -47,44 +68,56 @@ export function HowItWorksSection() {
       endDay = daysInMonth;
     }
 
-    return `${endDay} de ${monthNames[currentMonth]}`;
+    const lang = isBrazil ? "pt" : "en";
+    return `${endDay} ${lang === "en" ? "of" : "de"} ${
+      monthNames[lang][currentMonth]
+    }`;
+  };
+
+  const formatDescription = (baseText: string) => {
+    return `<span class="text-yellow-400">${baseText}</span>`;
   };
 
   const steps = [
     {
       icon: MessageSquare,
-      title: "Você escolhe como prefere começar",
-      description:
-        "Pelo Chat: Preenche um fluxo interativo com perguntas sobre seu projeto. Rápido, direto ao ponto — e você já conhece meu processo por dentro.\n\nPor Reunião: Prefere conversar? A gente marca uma call de 30 a 40 minutos pra entender melhor sua ideia e tirar dúvidas pontuais.",
+      title: t("howItWorks.step1.title"),
+      description: t("howItWorks.step1.description"),
       delay: 200,
     },
     {
       icon: CreditCard,
-      title: "Pagamento do Diagnóstico Técnico",
-      description: `R$ 197 (valor promocional até ${getPromotionEndDate()})\nEste valor será abatido do projeto completo caso sigamos juntos.\n\nAssim que o pagamento for confirmado, agendamos a reunião ou já começamos a análise com base no que você nos enviou.`,
+      title: t("howItWorks.step2.title"),
+      description: isBrazil
+        ? `R$ 197 (valor promocional até ${getPromotionEndDate()})\n\n${formatDescription(
+            t("howItWorks.step2.description")
+          )}`
+        : `USD 40 (promotional price until ${getPromotionEndDate()})\n\n${formatDescription(
+            t("howItWorks.step2.description")
+          )}`,
       delay: 300,
     },
     {
       icon: FileText,
-      title: "Recebimento do Diagnóstico Profissional",
-      description: "Você recebe um documento personalizado com:",
+      title: t("howItWorks.step3.title"),
+      description: t("howItWorks.step3.description"),
       items: [
-        "Análise técnica do seu cenário ou ideia",
-        "Sugestão de tecnologias e arquitetura",
-        "Pontos de melhoria ou refatoração",
-        "Estimativa de investimento e manutenção",
-        "Proposta formal baseada na análise",
+        t("howItWorks.step3.items.analysis"),
+        t("howItWorks.step3.items.tech"),
+        t("howItWorks.step3.items.improvements"),
+        t("howItWorks.step3.items.estimate"),
+        t("howItWorks.step3.items.proposal"),
       ],
       delay: 400,
     },
     {
       icon: FileCheck,
-      title: "Fechamento do Projeto",
-      description: "Se decidirmos seguir juntos:",
+      title: t("howItWorks.step4.title"),
+      description: t("howItWorks.step4.description"),
       items: [
-        "Eu preparo e envio um contrato formal com todos os detalhes alinhados",
-        "Após a assinatura, você realiza o pagamento inicial",
-        "Iniciamos o desenvolvimento do projeto, com total acompanhamento técnico e cronograma claro",
+        t("howItWorks.step4.items.contract"),
+        t("howItWorks.step4.items.payment"),
+        t("howItWorks.step4.items.start"),
       ],
       delay: 500,
     },
@@ -98,14 +131,13 @@ export function HowItWorksSection() {
           <div className="text-center mb-16">
             <AnimatedSection>
               <h2 className="text-3xl md:text-4xl font-bold mb-3 leading-tight">
-                Como Funciona
+                {t("howItWorks.title")}
               </h2>
             </AnimatedSection>
 
             <AnimatedSection delay={100}>
               <p className="text-xl text-muted-foreground">
-                Processo simples e direto para transformar sua ideia em
-                realidade
+                {t("howItWorks.subtitle")}
               </p>
             </AnimatedSection>
           </div>
@@ -137,9 +169,12 @@ export function HowItWorksSection() {
                         <h3 className="text-xl font-bold mb-4">{step.title}</h3>
 
                         <div className="space-y-4">
-                          <p className="text-muted-foreground whitespace-pre-line">
-                            {step.description}
-                          </p>
+                          <p
+                            className="text-muted-foreground whitespace-pre-line"
+                            dangerouslySetInnerHTML={{
+                              __html: step.description,
+                            }}
+                          />
 
                           {step.items && (
                             <div className="bg-accent/5 rounded-lg p-4">
@@ -177,17 +212,21 @@ export function HowItWorksSection() {
           <AnimatedSection delay={800} className="mt-12">
             <div className="bg-accent/10 rounded-lg p-6 text-center">
               <div className="flex items-center justify-center gap-4 mb-4">
-                <span className="text-2xl font-bold text-accent">R$ 197</span>
+                <span className="text-2xl font-bold text-accent">
+                  {isBrazil ? "R$ 197" : "USD 40"}
+                </span>
                 <span className="text-lg text-muted-foreground line-through">
-                  R$ 397
+                  {isBrazil ? "R$ 397" : "USD 80"}
                 </span>
               </div>
               <p className="text-sm font-semibold text-yellow-400 animate-pulse mb-2">
-                ⚡ Preço especial válido até {getPromotionEndDate()}!
+                {t("howItWorks.promo.special").replace(
+                  "%date%",
+                  getPromotionEndDate()
+                )}
               </p>
               <p className="text-sm text-muted-foreground mb-6">
-                Este valor é descontado do projeto final caso fechemos o
-                negócio!
+                {t("howItWorks.promo.discount")}
               </p>
               <CTAButton
                 typebotUrl="https://typebot.io/seu-typebot"
@@ -195,7 +234,7 @@ export function HowItWorksSection() {
               >
                 <span className="flex items-center gap-2">
                   <Rocket className="h-5 w-5" />
-                  <span>Começar Agora</span>
+                  <span>{t("howItWorks.promo.cta")}</span>
                 </span>
               </CTAButton>
             </div>

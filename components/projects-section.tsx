@@ -1,51 +1,57 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import { Carousel } from "./carousel"
-import { useTranslations } from "@/hooks/use-translations"
-import { ExternalLink, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { projectsData } from "@/data/projects"
-import { AnimatedSection } from "./animated-section"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useRef, useEffect } from "react";
+import { Carousel } from "./carousel";
+import { useTranslations } from "@/hooks/use-translations";
+import { ExternalLink, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { projectsData } from "@/data/projects";
+import { AnimatedSection } from "./animated-section";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function ProjectsSection() {
-  const { t } = useTranslations()
-  const [expandedProject, setExpandedProject] = useState<string | null>(null)
-  const modalRef = useRef<HTMLDivElement>(null)
-  const modalContentRef = useRef<HTMLDivElement>(null)
+  const { t } = useTranslations();
+  const [expandedProject, setExpandedProject] = useState<string | null>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const modalContentRef = useRef<HTMLDivElement>(null);
 
   // Fechar o modal ao clicar fora dele
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && modalContentRef.current && !modalContentRef.current.contains(event.target as Node)) {
-        setExpandedProject(null)
+      if (
+        modalRef.current &&
+        modalContentRef.current &&
+        !modalContentRef.current.contains(event.target as Node)
+      ) {
+        setExpandedProject(null);
       }
-    }
+    };
 
     if (expandedProject) {
-      document.addEventListener("mousedown", handleClickOutside)
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [expandedProject])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [expandedProject]);
 
   // Impedir o scroll do body quando o modal estiver aberto
   useEffect(() => {
     if (expandedProject) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto"
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = "auto"
-    }
-  }, [expandedProject])
+      document.body.style.overflow = "auto";
+    };
+  }, [expandedProject]);
 
-  const currentProject = expandedProject ? projectsData.find((project) => project.id === expandedProject) : null
+  const currentProject = expandedProject
+    ? projectsData.find((project) => project.id === expandedProject)
+    : null;
 
   return (
     <section id="projects" className="py-20 bg-secondary/30 futuristic-bg">
@@ -53,11 +59,15 @@ export function ProjectsSection() {
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">{t("projects.title")}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+              {t("projects.title")}
+            </h2>
           </AnimatedSection>
 
           <AnimatedSection delay={100}>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("projects.description")}</p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              {t("projects.description")}
+            </p>
           </AnimatedSection>
         </div>
 
@@ -82,7 +92,9 @@ export function ProjectsSection() {
                   {(project.gallery?.length || project.link) && (
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/40">
                       <Button variant="secondary" className="z-10">
-                        {project.gallery?.length ? t("projects.viewGallery") : t("projects.visitSite")}
+                        {project.gallery?.length
+                          ? t("projects.viewGallery")
+                          : t("projects.visitSite")}
                       </Button>
                     </div>
                   )}
@@ -101,14 +113,21 @@ export function ProjectsSection() {
                       </a>
                     )}
                   </div>
-                  <p className="text-muted-foreground">{t(project.description)}</p>
+                  <p className="text-muted-foreground">
+                    {t(project.description)}
+                  </p>
 
                   {project.technologies && project.technologies.length > 0 && (
                     <div className="mt-4">
-                      <p className="text-sm font-medium mb-1">{t("projects.technologies")}</p>
+                      <p className="text-sm font-medium mb-1">
+                        {t("projects.technologies")}
+                      </p>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, idx) => (
-                          <span key={idx} className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
+                          <span
+                            key={idx}
+                            className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full"
+                          >
                             {tech}
                           </span>
                         ))}
@@ -141,7 +160,9 @@ export function ProjectsSection() {
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="flex justify-between items-center p-4 border-b border-border sticky top-0 bg-card z-10">
-                  <h3 className="text-xl font-bold">{t(currentProject.title)}</h3>
+                  <h3 className="text-xl font-bold">
+                    {t(currentProject.title)}
+                  </h3>
                   <Button
                     variant="ghost"
                     size="icon"
@@ -151,22 +172,33 @@ export function ProjectsSection() {
                     <X className="h-5 w-5" />
                   </Button>
                 </div>
-                <div className="p-4 overflow-y-auto" style={{ maxHeight: "calc(100vh - 240px)" }}>
+                <div
+                  className="p-4 overflow-y-auto"
+                  style={{ maxHeight: "calc(100vh - 240px)" }}
+                >
                   <div className="mb-4">
-                    <p className="text-muted-foreground mb-4">{t(currentProject.description)}</p>
+                    <p className="text-muted-foreground mb-4">
+                      {t(currentProject.description)}
+                    </p>
 
-                    {currentProject.technologies && currentProject.technologies.length > 0 && (
-                      <div className="mb-4">
-                        <p className="text-sm font-medium mb-1">{t("projects.technologies")}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {currentProject.technologies.map((tech, idx) => (
-                            <span key={idx} className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
-                              {tech}
-                            </span>
-                          ))}
+                    {currentProject.technologies &&
+                      currentProject.technologies.length > 0 && (
+                        <div className="mb-4">
+                          <p className="text-sm font-medium mb-1">
+                            {t("projects.technologies")}
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {currentProject.technologies.map((tech, idx) => (
+                              <span
+                                key={idx}
+                                className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
 
                     {currentProject.link && (
                       <a
@@ -192,7 +224,9 @@ export function ProjectsSection() {
                       >
                         <img
                           src={image || "/placeholder.svg"}
-                          alt={`${t(currentProject.title)} - ${t("projects.image")} ${idx + 1}`}
+                          alt={`${t(currentProject.title)} - ${t(
+                            "projects.image"
+                          )} ${idx + 1}`}
                           className="w-full h-full object-cover"
                         />
                       </motion.div>
@@ -205,6 +239,5 @@ export function ProjectsSection() {
         </AnimatePresence>
       </div>
     </section>
-  )
+  );
 }
-

@@ -1,4 +1,4 @@
-export type Locale = "pt-BR" | "en"
+export type Locale = "pt-BR" | "en";
 
 export type TranslationKey =
   | "header.about"
@@ -67,6 +67,25 @@ export type TranslationKey =
   | "projects.close"
   | "projects.image"
   | "projects.technologies"
+  | "howItWorks.step1.title"
+  | "howItWorks.step1.description"
+  | "howItWorks.step2.title"
+  | "howItWorks.step2.description"
+  | "howItWorks.step3.title"
+  | "howItWorks.step3.description"
+  | "howItWorks.step3.items.analysis"
+  | "howItWorks.step3.items.tech"
+  | "howItWorks.step3.items.improvements"
+  | "howItWorks.step3.items.estimate"
+  | "howItWorks.step3.items.proposal"
+  | "howItWorks.step4.title"
+  | "howItWorks.step4.description"
+  | "howItWorks.step4.items.contract"
+  | "howItWorks.step4.items.payment"
+  | "howItWorks.step4.items.start"
+  | "howItWorks.promo.special"
+  | "howItWorks.promo.discount"
+  | "howItWorks.promo.cta";
 
 export const translations: Record<Locale, Record<TranslationKey, string>> = {
   "pt-BR": {
@@ -74,14 +93,17 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
     "header.projects": "Projetos",
     "header.contact": "Solicitar Diagnóstico",
 
-    "hero.title": "Desenvolvimento sob medida para negócios que não podem errar.",
-    "hero.subtitle": "Sites, sistemas e apps pensados para escalar com eficiência — sem amadorismo, sem gambiarra.",
+    "hero.title":
+      "Desenvolvimento sob medida para negócios que não podem errar.",
+    "hero.subtitle":
+      "Sites, sistemas e apps pensados para escalar com eficiência — sem amadorismo, sem gambiarra.",
     "hero.description":
       "Com mais de 8 anos de experiência e passagens por Vivo, Accenture, Sicredi e startups, eu ajudo empresas a lançarem e manterem produtos digitais com foco em performance, estabilidade e resultado.",
     "hero.cta": "Solicitar Diagnóstico do Projeto",
 
     "about.title": "Por trás do código: Valdery Alves",
-    "about.paragraph1": "Desenvolvedor fullstack com mais de 8 anos de experiência.",
+    "about.paragraph1":
+      "Desenvolvedor fullstack com mais de 8 anos de experiência.",
     "about.paragraph2":
       "Já atuei com empresas como Vivo, Sicredi, Accenture e atualmente integro o time da DBC Company.",
     "about.paragraph3":
@@ -91,7 +113,8 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
     "trustedCompanies.title": "Empresas que já confiam no meu trabalho:",
 
     "howItWorks.title": "Antes de programar, eu analiso.",
-    "howItWorks.subtitle": "Seu projeto precisa de estratégia, não de adivinhação.",
+    "howItWorks.subtitle":
+      "Seu projeto precisa de estratégia, não de adivinhação.",
     "howItWorks.description":
       "Para garantir que você receba uma solução sob medida — e evitar desperdício de tempo com reuniões improdutivas — ofereço um Diagnóstico Técnico Profissional com base nas informações que você envia pelo chat.",
     "howItWorks.youReceive": "Você recebe um material visual e direto com:",
@@ -100,7 +123,8 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
     "howItWorks.bulletPoint3": "Pontos de melhoria ou refatoração",
     "howItWorks.bulletPoint4": "Estimativa de investimento e manutenção",
     "howItWorks.bulletPoint5": "Proposta formal com base no diagnóstico",
-    "howItWorks.price": "Valor: R$ 197 (descontado do valor total se fecharmos o projeto)",
+    "howItWorks.price":
+      "Valor: R$ 197 (descontado do valor total se fecharmos o projeto)",
     "howItWorks.cta": "Quero solicitar meu diagnóstico",
 
     "projects.title": "Projetos que entregam resultado",
@@ -148,15 +172,20 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
       "Plataforma web responsiva para acesso a academias via empresas. Participei do design e do front-end com Vue e Quasar.",
 
     "projects.marketplace.title": "Marketplace funcional",
-    "projects.marketplace.description": "Sistema que conecta compradores e vendedores com gestão de transações.",
+    "projects.marketplace.description":
+      "Sistema que conecta compradores e vendedores com gestão de transações.",
     "projects.landing.title": "Landing pages otimizadas",
-    "projects.landing.description": "3 online - Páginas de conversão com alto desempenho e otimizadas para SEO.",
+    "projects.landing.description":
+      "3 online - Páginas de conversão com alto desempenho e otimizadas para SEO.",
     "projects.ecommerce.title": "E-commerce personalizado",
-    "projects.ecommerce.description": "Plataforma de vendas online com gestão de produtos e pagamentos integrados.",
+    "projects.ecommerce.description":
+      "Plataforma de vendas online com gestão de produtos e pagamentos integrados.",
     "projects.admin.title": "Plataforma com painel administrativo",
-    "projects.admin.description": "Dashboards e sistemas administrativos para gestão empresarial.",
+    "projects.admin.description":
+      "Dashboards e sistemas administrativos para gestão empresarial.",
     "projects.legacy.title": "Manutenção de sistemas legados",
-    "projects.legacy.description": "Refatoração e modernização de sistemas existentes.",
+    "projects.legacy.description":
+      "Refatoração e modernização de sistemas existentes.",
     "projects.viewGallery": "Ver galeria",
     "projects.visitSite": "Visitar site",
     "projects.close": "Fechar",
@@ -166,17 +195,48 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
     "cta.title": "Vamos começar com clareza e profissionalismo?",
     "cta.paragraph1":
       "Se você está em busca de um desenvolvedor que entende do negócio e entrega soluções sólidas, o primeiro passo é o diagnóstico.",
-    "cta.paragraph2": "Rápido, objetivo e aplicável de verdade. Se fizer sentido, seguimos com o projeto completo.",
+    "cta.paragraph2":
+      "Rápido, objetivo e aplicável de verdade. Se fizer sentido, seguimos com o projeto completo.",
     "cta.button": "Solicitar Diagnóstico do Projeto",
 
     "footer.copyright": "Todos os direitos reservados.",
+
+    "howItWorks.step1.title": "Você escolhe como prefere começar",
+    "howItWorks.step1.description":
+      "Pelo Chat: Preenche um fluxo interativo com perguntas sobre seu projeto. Rápido, direto ao ponto — e você já conhece meu processo por dentro.\n\nPor Reunião: Prefere conversar? A gente marca uma call de 30 a 40 minutos pra entender melhor sua ideia e tirar dúvidas pontuais.",
+    "howItWorks.step2.title": "Pagamento do Diagnóstico Técnico",
+    "howItWorks.step2.description":
+      "Este valor será abatido do projeto completo caso sigamos juntos.\nAssim que o pagamento for confirmado, agendamos a reunião ou já começamos a análise com base no que você nos enviou.",
+    "howItWorks.step3.title": "Recebimento do Diagnóstico Profissional",
+    "howItWorks.step3.description":
+      "Você recebe um documento personalizado com:",
+    "howItWorks.step3.items.analysis":
+      "Análise técnica do seu cenário ou ideia",
+    "howItWorks.step3.items.tech": "Sugestão de tecnologias e arquitetura",
+    "howItWorks.step3.items.improvements": "Pontos de melhoria ou refatoração",
+    "howItWorks.step3.items.estimate":
+      "Estimativa de investimento e manutenção",
+    "howItWorks.step3.items.proposal": "Proposta formal baseada na análise",
+    "howItWorks.step4.title": "Fechamento do Projeto",
+    "howItWorks.step4.description": "Se decidirmos seguir juntos:",
+    "howItWorks.step4.items.contract":
+      "Eu preparo e envio um contrato formal com todos os detalhes alinhados",
+    "howItWorks.step4.items.payment":
+      "Após a assinatura, você realiza o pagamento inicial",
+    "howItWorks.step4.items.start":
+      "Iniciamos o desenvolvimento do projeto, com total acompanhamento técnico e cronograma claro",
+    "howItWorks.promo.special": "⚡ Preço especial válido até %date%!",
+    "howItWorks.promo.discount":
+      "Este valor é descontado do projeto final caso fechemos o negócio!",
+    "howItWorks.promo.cta": "Quero solicitar meu diagnóstico",
   },
   en: {
     "header.about": "About me",
     "header.projects": "Projects",
     "header.contact": "Request Diagnosis",
 
-    "hero.title": "Custom development for businesses that cannot afford to make mistakes.",
+    "hero.title":
+      "Custom development for businesses that cannot afford to make mistakes.",
     "hero.subtitle":
       "Websites, systems, and apps designed to scale efficiently — without amateurism, without workarounds.",
     "hero.description":
@@ -203,7 +263,8 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
     "howItWorks.bulletPoint3": "Improvement or refactoring points",
     "howItWorks.bulletPoint4": "Investment and maintenance estimate",
     "howItWorks.bulletPoint5": "Formal proposal based on the diagnosis",
-    "howItWorks.price": "Price: $40 (discounted from the total if we close the project)",
+    "howItWorks.price":
+      "Price: $40 (discounted from the total if we close the project)",
     "howItWorks.cta": "I want to request my diagnosis",
 
     "projects.title": "Projects that deliver results",
@@ -251,15 +312,20 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
       "Responsive web platform for accessing gyms via companies. I participated in the design and front-end with Vue and Quasar.",
 
     "projects.marketplace.title": "Functional marketplace",
-    "projects.marketplace.description": "System that connects buyers and sellers with transaction management.",
+    "projects.marketplace.description":
+      "System that connects buyers and sellers with transaction management.",
     "projects.landing.title": "Optimized landing pages",
-    "projects.landing.description": "3 online - High-performance conversion pages optimized for SEO.",
+    "projects.landing.description":
+      "3 online - High-performance conversion pages optimized for SEO.",
     "projects.ecommerce.title": "Custom e-commerce",
-    "projects.ecommerce.description": "Online sales platform with integrated product management and payments.",
+    "projects.ecommerce.description":
+      "Online sales platform with integrated product management and payments.",
     "projects.admin.title": "Platform with administrative panel",
-    "projects.admin.description": "Dashboards and administrative systems for business management.",
+    "projects.admin.description":
+      "Dashboards and administrative systems for business management.",
     "projects.legacy.title": "Legacy system maintenance",
-    "projects.legacy.description": "Refactoring and modernization of existing systems.",
+    "projects.legacy.description":
+      "Refactoring and modernization of existing systems.",
     "projects.viewGallery": "View gallery",
     "projects.visitSite": "Visit site",
     "projects.close": "Close",
@@ -274,6 +340,32 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
     "cta.button": "Request Project Diagnosis",
 
     "footer.copyright": "All rights reserved.",
-  },
-}
 
+    "howItWorks.step1.title": "Choose how you prefer to start",
+    "howItWorks.step1.description":
+      "By Chat: Fill out an interactive flow with questions about your project. Quick, straight to the point — and you'll get to know my process from the inside.\n\nBy Meeting: Prefer to talk? We'll schedule a 30-40 minute call to better understand your idea and address specific questions.",
+    "howItWorks.step2.title": "Technical Diagnosis Payment",
+    "howItWorks.step2.description":
+      "This amount will be deducted from the complete project if we move forward together.\n\nOnce the payment is confirmed, we'll schedule the meeting or start the analysis based on what you've sent us.",
+    "howItWorks.step3.title": "Professional Diagnosis Receipt",
+    "howItWorks.step3.description": "You receive a personalized document with:",
+    "howItWorks.step3.items.analysis":
+      "Technical analysis of your scenario or idea",
+    "howItWorks.step3.items.tech": "Technology and architecture suggestions",
+    "howItWorks.step3.items.improvements": "Improvement or refactoring points",
+    "howItWorks.step3.items.estimate": "Investment and maintenance estimates",
+    "howItWorks.step3.items.proposal": "Formal proposal based on the analysis",
+    "howItWorks.step4.title": "Project Closure",
+    "howItWorks.step4.description": "If we decide to move forward together:",
+    "howItWorks.step4.items.contract":
+      "I prepare and send a formal contract with all aligned details",
+    "howItWorks.step4.items.payment":
+      "After signing, you make the initial payment",
+    "howItWorks.step4.items.start":
+      "We begin project development, with full technical monitoring and clear timeline",
+    "howItWorks.promo.special": "⚡ Special price valid until %date%!",
+    "howItWorks.promo.discount":
+      "This amount will be discounted from the final project if we close the deal!",
+    "howItWorks.promo.cta": "I want to request my diagnosis",
+  },
+};

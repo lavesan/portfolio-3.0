@@ -1,39 +1,41 @@
-"use client"
+"use client";
 
-import { CTAButton } from "./cta-button"
-import { ThemeToggle } from "./theme-toggle"
-import { LanguageToggle } from "./language-toggle"
-import { useState, useEffect } from "react"
-import { useTranslations } from "@/hooks/use-translations"
-import { FileText } from "lucide-react"
+import { CTAButton } from "./cta-button";
+import { ThemeToggle } from "./theme-toggle";
+import { LanguageToggle } from "./language-toggle";
+import { useState, useEffect } from "react";
+import { useTranslations } from "@/hooks/use-translations";
+import { FileText } from "lucide-react";
 
 export function Header() {
-  const { t } = useTranslations()
-  const [scrolled, setScrolled] = useState(false)
+  const { t } = useTranslations();
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
+      setScrolled(window.scrollY > 10);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
       window.scrollTo({
         top: element.offsetTop - 70, // Ajuste para compensar a altura do header
         behavior: "smooth",
-      })
+      });
     }
-  }
+  };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/90 backdrop-blur-md py-2 shadow-md border-b border-border/20" : "bg-transparent py-3"
+        scrolled
+          ? "bg-background/90 backdrop-blur-md py-2 shadow-md border-b border-border/20"
+          : "bg-transparent py-3"
       }`}
     >
       <div className="container mx-auto">
@@ -77,6 +79,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }
-
