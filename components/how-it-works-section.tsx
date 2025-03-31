@@ -14,6 +14,42 @@ import {
 export function HowItWorksSection() {
   const { t } = useTranslations();
 
+  const getPromotionEndDate = () => {
+    const today = new Date();
+    const currentDay = today.getDate();
+    const currentMonth = today.getMonth();
+    const daysInMonth = new Date(
+      today.getFullYear(),
+      currentMonth + 1,
+      0
+    ).getDate();
+    const monthNames = [
+      "janeiro",
+      "fevereiro",
+      "março",
+      "abril",
+      "maio",
+      "junho",
+      "julho",
+      "agosto",
+      "setembro",
+      "outubro",
+      "novembro",
+      "dezembro",
+    ];
+
+    let endDay;
+    if (currentDay <= Math.floor(daysInMonth / 2)) {
+      // If before middle of month, end at middle
+      endDay = Math.floor(daysInMonth / 2);
+    } else {
+      // If after middle of month, end at end of month
+      endDay = daysInMonth;
+    }
+
+    return `${endDay} de ${monthNames[currentMonth]}`;
+  };
+
   const steps = [
     {
       icon: ClipboardList,
@@ -25,7 +61,7 @@ export function HowItWorksSection() {
       icon: CreditCard,
       title: "Pagamento",
       description:
-        "Realiza o pagamento de R$ 197 (valor com desconto especial)",
+        "Realiza o pagamento de R$ 197 (valor com desconto especial). Este valor será descontado do projeto final caso fechemos o negócio",
       delay: 300,
     },
     {
@@ -125,8 +161,11 @@ export function HowItWorksSection() {
                   R$ 397
                 </span>
               </div>
+              <p className="text-sm font-semibold text-yellow-400 animate-pulse mb-2">
+                ⚡ Preço especial válido até {getPromotionEndDate()}!
+              </p>
               <p className="text-sm text-muted-foreground mb-6">
-                Preço especial válido até metade de fevereiro!
+                Este valor é descontado do projeto final caso fechemos o negócio
               </p>
               <CTAButton
                 typebotUrl="https://typebot.io/seu-typebot"

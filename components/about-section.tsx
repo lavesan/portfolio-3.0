@@ -45,7 +45,7 @@ export function AboutSection() {
           </div>
 
           <AnimatedSection direction="left" className="flex justify-center">
-            <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-primary/20 glow">
+            <div className="relative w-64 h-64 rounded-lg overflow-hidden border-4 border-primary/20 glow">
               <img
                 src="/eu.jpeg"
                 alt="Valdery Alves"
