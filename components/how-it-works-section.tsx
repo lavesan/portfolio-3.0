@@ -18,8 +18,9 @@ export interface HowItWorksSectionProps {
 }
 
 export function HowItWorksSection({ forcedLocale }: HowItWorksSectionProps) {
-  const { t } = useTranslations();
+  const { t, locale } = useTranslations();
   const isBrazil = forcedLocale ? forcedLocale === "pt-BR" : true;
+  const isEnglish = locale === "en";
 
   const getPromotionEndDate = () => {
     const today = new Date();
@@ -68,7 +69,7 @@ export function HowItWorksSection({ forcedLocale }: HowItWorksSectionProps) {
       endDay = daysInMonth;
     }
 
-    const lang = isBrazil ? "pt" : "en";
+    const lang = isEnglish ? "en" : "pt";
     return `${endDay} ${lang === "en" ? "of" : "de"} ${
       monthNames[lang][currentMonth]
     }`;
@@ -88,11 +89,11 @@ export function HowItWorksSection({ forcedLocale }: HowItWorksSectionProps) {
     {
       icon: CreditCard,
       title: t("howItWorks.step2.title"),
-      description: isBrazil
-        ? `R$ 197 (valor promocional até ${getPromotionEndDate()})\n\n${formatDescription(
+      description: isEnglish
+        ? `USD 40 (promotional price until ${getPromotionEndDate()})\n\n${formatDescription(
             t("howItWorks.step2.description")
           )}`
-        : `USD 40 (promotional price until ${getPromotionEndDate()})\n\n${formatDescription(
+        : `R$ 197 (valor promocional até ${getPromotionEndDate()})\n\n${formatDescription(
             t("howItWorks.step2.description")
           )}`,
       delay: 300,
@@ -213,10 +214,10 @@ export function HowItWorksSection({ forcedLocale }: HowItWorksSectionProps) {
             <div className="bg-accent/10 rounded-lg p-6 text-center">
               <div className="flex items-center justify-center gap-4 mb-4">
                 <span className="text-2xl font-bold text-accent">
-                  {isBrazil ? "R$ 197" : "USD 40"}
+                  {isEnglish ? "USD 40" : "R$ 197"}
                 </span>
                 <span className="text-lg text-muted-foreground line-through">
-                  {isBrazil ? "R$ 397" : "USD 80"}
+                  {isEnglish ? "USD 80" : "R$ 397"}
                 </span>
               </div>
               <p className="text-sm font-semibold text-yellow-400 animate-pulse mb-2">
