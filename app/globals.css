@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modo claro */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Azul petróleo mais escuro */
+    --primary: 200 60% 40%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Verde esmeralda escuro - Novo CTA */
+    --accent: 160 95% 26%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 200 60% 40%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Modo escuro */
+    --background: 222 18% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 16% 16%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 18% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 200 60% 30%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222 16% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 16% 20%;
+    --muted-foreground: 210 20% 70%;
+
+    /* Verde esmeralda escuro - Novo CTA */
+    --accent: 160 95% 26%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 16% 20%;
+    --input: 222 16% 16%;
+    --ring: 200 60% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-playfair;
+  }
+  p,
+  span,
+  a,
+  button,
+  li {
+    @apply font-inter;
+  }
+}
+
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+/* Efeitos futuristas melhorados com cores mais suaves */
+.glow {
+  box-shadow: 0 0 15px rgba(30, 90, 120, 0.2), 0 0 30px rgba(30, 90, 120, 0.1);
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
+  z-index: -1;
+  border-radius: 0.6rem;
+}
+
+.futuristic-bg {
+  @apply bg-background;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark .futuristic-bg {
+  background: linear-gradient(
+    to bottom,
+    hsl(222, 18%, 12%),
+    hsl(222, 18%, 10%)
+  );
+}
+
+.grid-pattern {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .grid-pattern {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Carousel */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .carousel-item {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-item {
+    width: calc(33.333% - 1rem);
+  }
+}
+
+/* Ajuste para garantir que o conteúdo seja visível */
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Ajuste para logos de empresas */
+.company-logo {
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.company-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Classe para telas extra pequenas */
+@media (min-width: 400px) {
+  .xs\:inline {
+    display: inline;
+  }
+
+  .xs\:hidden {
+    display: none;
+  }
+}
