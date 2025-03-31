@@ -2,7 +2,6 @@
 
 import { CTAButton } from "./cta-button";
 import { ThemeToggle } from "./theme-toggle";
-import { LanguageToggle } from "./language-toggle";
 import { useState, useEffect } from "react";
 import { useTranslations } from "@/hooks/use-translations";
 import { FileText } from "lucide-react";
@@ -62,7 +61,6 @@ export function Header() {
           </div>
 
           <div className="flex items-center gap-2">
-            <LanguageToggle />
             <ThemeToggle />
 
             <CTAButton

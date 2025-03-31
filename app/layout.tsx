@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { TranslationsProvider } from "@/hooks/use-translations";
 import Script from "next/script";
 
 const inter = Inter({
@@ -16,9 +15,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Desenvolvimento sob medida para negócios que não podem errar",
+  title: "Valdery Alves - Desenvolvedor Fullstack",
   description:
-    "Sites, sistemas e apps pensados para escalar com eficiência — sem amadorismo, sem gambiarra.",
+    "Desenvolvimento sob medida para negócios que não podem errar. Sites, sistemas e apps pensados para escalar com eficiência.",
   openGraph: {
     title: "Desenvolvimento sob medida para negócios que não podem errar",
     description:
@@ -103,8 +102,13 @@ export default function RootLayout({
           />
         </noscript>
 
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <TranslationsProvider>{children}</TranslationsProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
         </ThemeProvider>
       </body>
     </html>
