@@ -7,6 +7,7 @@ import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 const playfair = Playfair_Display({
@@ -15,25 +16,31 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Valdery Alves - Desenvolvedor Fullstack",
+  title: "Valdery Alves | Desenvolvedor Full Stack",
   description:
-    "Desenvolvimento sob medida para negócios que não podem errar. Sites, sistemas e apps pensados para escalar com eficiência.",
+    "Desenvolvedor Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
+  icons: {
+    icon: "/logo.png",
+  },
   openGraph: {
-    title: "Desenvolvimento sob medida para negócios que não podem errar",
+    title: "Valdery Alves | Desenvolvedor Full Stack",
     description:
-      "Sites, sistemas e apps pensados para escalar com eficiência — sem amadorismo, sem gambiarra.",
-    url: "https://seudominio.com.br",
-    siteName: "Desenvolvimento Web Premium",
+      "Desenvolvedor Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
     images: [
       {
-        url: "/opengraph.png",
-        width: 1200,
-        height: 630,
-        alt: "Desenvolvimento sob medida para negócios que não podem errar",
+        url: "/logo.png",
+        width: 800,
+        height: 600,
+        alt: "Valdery Alves - Desenvolvedor Full Stack",
       },
     ],
-    locale: "pt_BR",
-    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Valdery Alves | Desenvolvedor Full Stack",
+    description:
+      "Desenvolvedor Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
+    images: ["/logo.png"],
   },
   keywords:
     "desenvolvimento web, desenvolvimento sob medida, sistemas personalizados, aplicativos, desenvolvimento premium, desenvolvimento profissional",
