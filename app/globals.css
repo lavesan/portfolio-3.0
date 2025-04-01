@@ -224,3 +224,9 @@ body {
 .animate-infinite-scroll {
   animation: infinite-scroll 25s linear infinite;
 }
+
+@media (max-width: 768px) {
+  .animate-infinite-scroll {
+    animation-duration: 5s;
+  }
+}
