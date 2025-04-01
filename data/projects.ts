@@ -12,22 +12,6 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    id: "ecommerce-whitelabel",
-    title: "projects.ecommerceWhitelabel.title",
-    description: "projects.ecommerceWhitelabel.description",
-    image: "/project-images/whitelabel-marketplace-1.PNG",
-    link: "https://ecommerce-front-delta.vercel.app/",
-    technologies: ["React", "Next.js", "Node.js", "PostgreSQL"],
-    gallery: [
-      "/project-images/whitelabel-marketplace-1.PNG",
-      "/project-images/whitelabel-marketplace-2.PNG",
-      "/project-images/whitelabel-marketplace-3.PNG",
-      "/project-images/whitelabel-marketplace-4.PNG",
-      "/project-images/whitelabel-marketplace-5.PNG",
-      "/project-images/whitelabel-marketplace-6.PNG",
-    ],
-  },
-  {
     id: "njord-store",
     title: "projects.njordStore.title",
     description: "projects.njordStore.description",
@@ -51,6 +35,22 @@ export const projectsData: Project[] = [
       "/project-images/clube-animadores-2.png",
       "/project-images/clube-animadores-3.png",
       "/project-images/clube-animadores-4.png",
+    ],
+  },
+  {
+    id: "ecommerce-whitelabel",
+    title: "projects.ecommerceWhitelabel.title",
+    description: "projects.ecommerceWhitelabel.description",
+    image: "/project-images/whitelabel-marketplace-1.PNG",
+    link: "https://ecommerce-front-delta.vercel.app/",
+    technologies: ["React", "Next.js", "Node.js", "PostgreSQL"],
+    gallery: [
+      "/project-images/whitelabel-marketplace-1.PNG",
+      "/project-images/whitelabel-marketplace-2.PNG",
+      "/project-images/whitelabel-marketplace-3.PNG",
+      "/project-images/whitelabel-marketplace-4.PNG",
+      "/project-images/whitelabel-marketplace-5.PNG",
+      "/project-images/whitelabel-marketplace-6.PNG",
     ],
   },
   {
