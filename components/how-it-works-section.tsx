@@ -229,7 +229,7 @@ export function HowItWorksSection({ forcedLocale }: HowItWorksSectionProps) {
                     getPromotionEndDate()
                   )}
                 </p>
-                <p className="text-sm text-gray-300 mb-6">
+                <p className="text-sm text-white mb-6">
                   {t("howItWorks.promo.discount")}
                 </p>
                 <CTAButton

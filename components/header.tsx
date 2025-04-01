@@ -7,6 +7,7 @@ import { CTAButton } from "./cta-button";
 import { ThemeToggle } from "./theme-toggle";
 import { FileText } from "lucide-react";
 import Image from "next/image";
+import { LanguageToggle } from "./language-toggle";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,8 +71,9 @@ export function Header() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
+          <div className="flex items-center gap-4">
+            {/* <ThemeToggle /> */}
+            {/* <LanguageToggle /> */}
 
             <CTAButton
               typebotUrl="https://typebot.io/seu-typebot"
