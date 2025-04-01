@@ -1,12 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { useTranslations } from "@/hooks/use-translations";
 
 export function TrustedCompaniesSection() {
-  const { t } = useTranslations();
-
   const companies = [
     {
       name: "Vivo",
@@ -32,6 +28,10 @@ export function TrustedCompaniesSection() {
       name: "Zeropay",
       logo: "/enterprises/zeropay.png",
     },
+    {
+      name: "DBC",
+      logo: "/enterprises/dbc-company.png",
+    },
   ];
 
   return (
@@ -53,7 +53,7 @@ export function TrustedCompaniesSection() {
                   alt={company.name}
                   width={128}
                   height={128}
-                  className="object-contain [filter:invert(45%)_sepia(98%)_saturate(427%)_hue-rotate(118deg)_brightness(95%)_contrast(101%)]"
+                  className="object-contain [filter:brightness(0)_saturate(100%)_invert(18%)_sepia(90%)_saturate(1000%)_hue-rotate(152deg)_brightness(94%)_contrast(101%)]"
                 />
               </div>
             ))}
@@ -68,7 +68,7 @@ export function TrustedCompaniesSection() {
                   alt={company.name}
                   width={128}
                   height={128}
-                  className="object-contain [filter:invert(45%)_sepia(98%)_saturate(427%)_hue-rotate(118deg)_brightness(95%)_contrast(101%)]"
+                  className="object-contain [filter:brightness(0)_saturate(100%)_invert(18%)_sepia(90%)_saturate(1000%)_hue-rotate(152deg)_brightness(94%)_contrast(101%)]"
                 />
               </div>
             ))}
