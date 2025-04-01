@@ -31,48 +31,50 @@ export const projectsData: Project[] = [
     id: "njord-store",
     title: "projects.njordStore.title",
     description: "projects.njordStore.description",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/project-images/njord-store-1.png",
     link: "https://store-dev.njord.com.br/auth/login?redirect=/melissa/home",
     technologies: ["Next.js", "React", "TypeScript", "GraphQL", "Node.js"],
     gallery: [
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
+      "/project-images/njord-store-1.png",
+      "/project-images/njord-store-2.png",
     ],
   },
   {
     id: "clube-animadores",
     title: "projects.clubeAnimadores.title",
     description: "projects.clubeAnimadores.description",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/project-images/clube-animadores-1.png",
     link: "https://www.clubedosanimadores.com.br/",
     technologies: ["Next.js", "React", "TypeScript"],
     gallery: [
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
+      "/project-images/clube-animadores-1.png",
+      "/project-images/clube-animadores-2.png",
+      "/project-images/clube-animadores-3.png",
+      "/project-images/clube-animadores-4.png",
     ],
   },
   {
     id: "chat-hunter",
     title: "projects.chatHunter.title",
     description: "projects.chatHunter.description",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/project-images/chathunterai-1.png",
     link: "https://clinicas.chathunterai.com.br/",
     technologies: ["Next.js", "React", "TypeScript"],
     gallery: [
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
+      "/project-images/chathunterai-1.png",
+      "/project-images/chathunterai-2.png",
     ],
   },
   {
     id: "hug-psicologia",
     title: "projects.hugPsicologia.title",
     description: "projects.hugPsicologia.description",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/project-images/hug-psicologia-1.png",
     link: "https://www.hugpsicologia.com.br/",
     technologies: ["Next.js", "React", "TypeScript"],
     gallery: [
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
+      "/project-images/hug-psicologia-1.png",
+      "/project-images/hug-psicologia-2.png",
     ],
   },
   {
@@ -81,7 +83,6 @@ export const projectsData: Project[] = [
     description: "projects.zeroVeneno.description",
     image:
       "https://valderyportfolio.s3.amazonaws.com/projetos/zero-veneno-inicio-mobile.jpeg",
-    link: "https://zero-veneno-ecommerce.vercel.app/",
     technologies: ["React", "Next.js", "Node.js", "NestJS", "Redux", "AWS"],
     gallery: [
       "https://valderyportfolio.s3.amazonaws.com/projetos/zero-veneno-login-mobile.jpeg",
@@ -120,7 +121,6 @@ export const projectsData: Project[] = [
     description: "projects.elosun.description",
     image:
       "https://valderyportfolio.s3.amazonaws.com/projetos/elosun-inicio.png",
-    link: "https://elosun.com.br",
     technologies: ["React", "PWA"],
     gallery: [
       "https://valderyportfolio.s3.amazonaws.com/projetos/elosun-inicio-mobile.png",
@@ -135,7 +135,6 @@ export const projectsData: Project[] = [
     description: "projects.jogoLuna.description",
     image:
       "https://valderyportfolio.s3.amazonaws.com/projetos/luna-inicio.jpeg",
-    link: "https://github.com/lavesan/LunaGame",
     technologies: ["React Native", "Expo"],
     gallery: [
       "https://valderyportfolio.s3.amazonaws.com/projetos/luna-apresentacao.jpeg",

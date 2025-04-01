@@ -217,7 +217,7 @@ export function ProjectsSection() {
                     {currentProject.gallery?.map((image, idx) => (
                       <motion.div
                         key={idx}
-                        className="aspect-video rounded-md overflow-hidden"
+                        className="rounded-md overflow-hidden mb-4"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: idx * 0.1 }}
@@ -227,7 +227,7 @@ export function ProjectsSection() {
                           alt={`${t(currentProject.title)} - ${t(
                             "projects.image"
                           )} ${idx + 1}`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-auto object-contain"
                         />
                       </motion.div>
                     ))}
