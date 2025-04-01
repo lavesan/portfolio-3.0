@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Desenvolvimento Web Premium",
     images: [
       {
-        url: "https://seudominio.com.br/og-image.jpg",
+        url: "/opengraph.png",
         width: 1200,
         height: 630,
         alt: "Desenvolvimento sob medida para negócios que não podem errar",
