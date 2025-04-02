@@ -22,7 +22,7 @@ export function HeroSection() {
                     Websites, systems and{" "}
                     <span className="text-emerald-600">apps</span> designed to{" "}
                     <span className="text-emerald-600">scale</span> efficiently
-                    — no <span className="text-emerald-600">shortcuts</span>, no
+                    — <span className="text-emerald-600">no shortcuts</span>, no
                     workarounds.
                   </>
                 ) : (
@@ -30,8 +30,8 @@ export function HeroSection() {
                     Sites, sistemas e{" "}
                     <span className="text-emerald-600">apps</span> pensados para{" "}
                     <span className="text-emerald-600">escalar</span> com
-                    eficiência — sem amadorismo, sem{" "}
-                    <span className="text-emerald-600">gambiarra</span>.
+                    eficiência — sem amadorismo,{" "}
+                    <span className="text-emerald-600">sem gambiarra</span>.
                   </>
                 )}
               </h1>
@@ -46,7 +46,7 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-start">
               <AnimatedSection delay={300}>
                 <CTAButton
-                  typebotUrl="https://typebot.io/seu-typebot"
+                  typebotUrl="https://sendbot.chat/meu-chatbot-tm33byp"
                   className="bg-emerald-600 hover:bg-emerald-700 text-white hero-cta-pulse"
                 >
                   <span className="flex items-center gap-2">

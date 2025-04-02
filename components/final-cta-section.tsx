@@ -33,7 +33,7 @@ export function FinalCTASection() {
 
           <AnimatedSection delay={300}>
             <CTAButton
-              typebotUrl="https://typebot.io/seu-typebot"
+              typebotUrl="https://sendbot.chat/meu-chatbot-tm33byp"
               className="mx-auto mt-8 bg-[#047857] hover:bg-[#047857]/90"
             >
               <span className="flex items-center gap-2">

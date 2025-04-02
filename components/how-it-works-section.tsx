@@ -233,7 +233,7 @@ export function HowItWorksSection({ forcedLocale }: HowItWorksSectionProps) {
                   {t("howItWorks.promo.discount")}
                 </p>
                 <CTAButton
-                  typebotUrl="https://typebot.io/seu-typebot"
+                  typebotUrl="https://sendbot.chat/meu-chatbot-tm33byp"
                   className="bg-emerald-600 hover:bg-emerald-700 text-white"
                 >
                   <span className="flex items-center gap-2">

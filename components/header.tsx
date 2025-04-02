@@ -72,7 +72,7 @@ export function Header() {
             {/* <LanguageToggle /> */}
 
             <CTAButton
-              typebotUrl="https://typebot.io/seu-typebot"
+              typebotUrl="https://sendbot.chat/meu-chatbot-tm33byp"
               className="py-1 sm:py-1.5 px-2 sm:px-3 text-xs sm:text-sm bg-[#047857] hover:bg-[#047857]/90"
             >
               <span className="flex items-center gap-1 sm:gap-1.5">
