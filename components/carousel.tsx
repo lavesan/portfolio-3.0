@@ -54,7 +54,7 @@ export function Carousel({ children, className }: CarouselProps) {
     <div className={cn("relative", className)}>
       <div
         ref={carouselRef}
-        className="flex overflow-x-auto snap-x snap-mandatory px-0 py-4 hide-scrollbar"
+        className="flex overflow-x-auto snap-x snap-mandatory px-0 md:px-4 py-4 hide-scrollbar md:gap-4"
         style={{
           scrollSnapType: "x mandatory",
           WebkitOverflowScrolling: "touch",
@@ -63,7 +63,7 @@ export function Carousel({ children, className }: CarouselProps) {
       >
         {Children.map(children, (child) => (
           <div
-            className="flex-shrink-0 w-full snap-center"
+            className="flex-shrink-0 w-full md:w-[calc(33.33%-11px)] snap-center"
             style={{
               scrollSnapAlign: "center",
               scrollSnapStop: "always",
