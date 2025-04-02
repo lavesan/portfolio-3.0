@@ -14,6 +14,17 @@ export function Carousel({ children, className }: CarouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const checkScrollButtons = () => {
     const carousel = carouselRef.current;
@@ -54,7 +65,10 @@ export function Carousel({ children, className }: CarouselProps) {
     <div className={cn("relative", className)}>
       <div
         ref={carouselRef}
-        className="flex overflow-x-auto snap-x snap-mandatory px-0 md:px-4 py-4 hide-scrollbar md:gap-4"
+        className={cn(
+          "flex overflow-x-auto snap-x snap-mandatory py-4 hide-scrollbar",
+          isMobile ? "px-0" : "-mx-4 px-4 gap-4"
+        )}
         style={{
           scrollSnapType: "x mandatory",
           WebkitOverflowScrolling: "touch",
@@ -63,11 +77,13 @@ export function Carousel({ children, className }: CarouselProps) {
       >
         {Children.map(children, (child) => (
           <div
-            className="flex-shrink-0 w-full md:w-[calc(33.33%-11px)] snap-center"
+            className={cn(
+              "flex-shrink-0 snap-center",
+              isMobile ? "w-full min-w-full" : "w-[31%] min-w-[31%]"
+            )}
             style={{
               scrollSnapAlign: "center",
               scrollSnapStop: "always",
-              minWidth: "100%",
             }}
           >
             {child}
@@ -75,7 +91,7 @@ export function Carousel({ children, className }: CarouselProps) {
         ))}
       </div>
 
-      {canScrollLeft && (
+      {!isMobile && canScrollLeft && (
         <Button
           variant="ghost"
           size="icon"
@@ -86,7 +102,7 @@ export function Carousel({ children, className }: CarouselProps) {
         </Button>
       )}
 
-      {canScrollRight && (
+      {!isMobile && canScrollRight && (
         <Button
           variant="ghost"
           size="icon"
