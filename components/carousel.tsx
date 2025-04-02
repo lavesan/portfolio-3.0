@@ -1,58 +1,71 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { useState, useRef, useEffect } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useRef, useEffect, Children } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface CarouselProps {
-  children: React.ReactNode[]
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }
 
 export function Carousel({ children, className }: CarouselProps) {
-  const carouselRef = useRef<HTMLDivElement>(null)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(false)
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
 
   const checkScrollButtons = () => {
-    if (!carouselRef.current) return
-
-    const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current
-    setCanScrollLeft(scrollLeft > 0)
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10)
-  }
+    const carousel = carouselRef.current;
+    if (carousel) {
+      setCanScrollLeft(carousel.scrollLeft > 0);
+      setCanScrollRight(
+        carousel.scrollLeft < carousel.scrollWidth - carousel.clientWidth
+      );
+    }
+  };
 
   useEffect(() => {
-    const carousel = carouselRef.current
+    const carousel = carouselRef.current;
     if (carousel) {
-      checkScrollButtons()
-      carousel.addEventListener("scroll", checkScrollButtons)
-      window.addEventListener("resize", checkScrollButtons)
+      checkScrollButtons();
+      carousel.addEventListener("scroll", checkScrollButtons);
+      window.addEventListener("resize", checkScrollButtons);
 
       return () => {
-        carousel.removeEventListener("scroll", checkScrollButtons)
-        window.removeEventListener("resize", checkScrollButtons)
-      }
+        carousel.removeEventListener("scroll", checkScrollButtons);
+        window.removeEventListener("resize", checkScrollButtons);
+      };
     }
-  }, [])
+  }, []);
 
-  const scrollLeft = () => {
-    if (!carouselRef.current) return
-    carouselRef.current.scrollBy({ left: -carouselRef.current.offsetWidth / 2, behavior: "smooth" })
-  }
-
-  const scrollRight = () => {
-    if (!carouselRef.current) return
-    carouselRef.current.scrollBy({ left: carouselRef.current.offsetWidth / 2, behavior: "smooth" })
-  }
+  const scroll = (direction: "left" | "right") => {
+    const carousel = carouselRef.current;
+    if (carousel) {
+      const scrollAmount = carousel.clientWidth;
+      carousel.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
-    <div className={`relative ${className}`}>
-      <div className="carousel" ref={carouselRef}>
-        {children.map((child, index) => (
-          <div key={index} className="carousel-item p-2">
+    <div className={cn("relative", className)}>
+      <div
+        ref={carouselRef}
+        className="flex overflow-x-auto snap-x snap-mandatory -mx-4 px-4 py-4 gap-4 hide-scrollbar"
+        style={{
+          scrollSnapType: "x mandatory",
+          WebkitOverflowScrolling: "touch",
+          scrollBehavior: "smooth",
+        }}
+      >
+        {Children.map(children, (child) => (
+          <div
+            className="flex-shrink-0 w-full snap-center md:w-[calc(33.33%-16px)]"
+            style={{ scrollSnapAlign: "center", scrollSnapStop: "always" }}
+          >
             {child}
           </div>
         ))}
@@ -60,26 +73,25 @@ export function Carousel({ children, className }: CarouselProps) {
 
       {canScrollLeft && (
         <Button
-          variant="outline"
+          variant="ghost"
           size="icon"
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-card/80 backdrop-blur-sm z-10 rounded-full border-primary/30 hover:bg-primary/20 hover:border-primary/50"
-          onClick={scrollLeft}
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm shadow-lg z-10"
+          onClick={() => scroll("left")}
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-4 w-4" />
         </Button>
       )}
 
       {canScrollRight && (
         <Button
-          variant="outline"
+          variant="ghost"
           size="icon"
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-card/80 backdrop-blur-sm z-10 rounded-full border-primary/30 hover:bg-primary/20 hover:border-primary/50"
-          onClick={scrollRight}
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm shadow-lg z-10"
+          onClick={() => scroll("right")}
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-4 w-4" />
         </Button>
       )}
     </div>
-  )
+  );
 }
-
