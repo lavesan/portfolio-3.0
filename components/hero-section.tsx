@@ -2,13 +2,11 @@
 
 import { CTAButton } from "./cta-button";
 import { useTranslations } from "@/hooks/use-translations";
-import { FileText } from "lucide-react";
-import { useExperienceYears } from "@/hooks/use-experience-years";
+import { Rocket } from "lucide-react";
 import { AnimatedSection } from "./animated-section";
 
 export function HeroSection() {
-  const { t } = useTranslations();
-  const experienceYears = useExperienceYears();
+  const { t, locale } = useTranslations();
 
   return (
     <section className="relative min-h-[80vh] flex items-center py-12 overflow-hidden futuristic-bg pt-28">
@@ -19,7 +17,23 @@ export function HeroSection() {
           <div>
             <AnimatedSection>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
-                {t("hero.title")}
+                {locale === "en" ? (
+                  <>
+                    Websites, systems and{" "}
+                    <span className="text-emerald-600">apps</span> designed to{" "}
+                    <span className="text-emerald-600">scale</span> efficiently
+                    — no <span className="text-emerald-600">shortcuts</span>, no
+                    workarounds.
+                  </>
+                ) : (
+                  <>
+                    Sites, sistemas e{" "}
+                    <span className="text-emerald-600">apps</span> pensados para{" "}
+                    <span className="text-emerald-600">escalar</span> com
+                    eficiência — sem amadorismo, sem{" "}
+                    <span className="text-emerald-600">gambiarra</span>.
+                  </>
+                )}
               </h1>
             </AnimatedSection>
 
@@ -29,17 +43,19 @@ export function HeroSection() {
               </p>
             </AnimatedSection>
 
-            <AnimatedSection delay={300}>
-              <CTAButton
-                typebotUrl="https://typebot.io/seu-typebot"
-                className="bg-[#047857] hover:bg-[#047857]/90"
-              >
-                <span className="flex items-center gap-2">
-                  <FileText className="h-5 w-5" />
-                  {t("hero.cta")}
-                </span>
-              </CTAButton>
-            </AnimatedSection>
+            <div className="flex flex-col sm:flex-row gap-4 justify-start">
+              <AnimatedSection delay={300}>
+                <CTAButton
+                  typebotUrl="https://typebot.io/seu-typebot"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white hero-cta-pulse"
+                >
+                  <span className="flex items-center gap-2">
+                    <Rocket className="h-5 w-5" />
+                    <span>{t("hero.cta")}</span>
+                  </span>
+                </CTAButton>
+              </AnimatedSection>
+            </div>
           </div>
 
           <AnimatedSection

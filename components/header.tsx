@@ -1,17 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "@/hooks/use-translations";
 import { CTAButton } from "./cta-button";
-import { ThemeToggle } from "./theme-toggle";
 import { FileText } from "lucide-react";
 import Image from "next/image";
-import { LanguageToggle } from "./language-toggle";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useTranslations();
 
   useEffect(() => {
@@ -41,15 +37,15 @@ export function Header() {
           : "bg-transparent py-3"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-6">
             <div className="relative">
               <Image
                 src="/logo.png"
                 alt="Valdery Alves"
-                width={36}
-                height={36}
+                width={40}
+                height={40}
                 className="object-contain"
                 priority
               />
@@ -82,7 +78,7 @@ export function Header() {
               <span className="flex items-center gap-1 sm:gap-1.5">
                 <FileText className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                 <span className="hidden xs:inline">{t("header.contact")}</span>
-                <span className="xs:hidden">Contato</span>
+                <span className="xs:hidden">{t("header.contact")}</span>
               </span>
             </CTAButton>
           </div>

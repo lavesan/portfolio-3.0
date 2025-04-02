@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "@/hooks/use-translations";
 
 export function TrustedCompaniesSection() {
+  const { t } = useTranslations();
+
   const companies = [
     {
       name: "Vivo",
@@ -38,7 +41,7 @@ export function TrustedCompaniesSection() {
     <section className="py-12 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
-          Empresas que confiam no meu trabalho
+          {t("trustedCompanies.title")}
         </h2>
         <div className="relative overflow-hidden">
           <div className="flex space-x-8 animate-infinite-scroll">

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     "Desenvolvedor Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
   icons: {
-    icon: "/logo.png",
+    icon: "/icon.png",
   },
   openGraph: {
     title: "Valdery Alves | Desenvolvedor Full Stack",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       "Desenvolvedor Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
     images: [
       {
-        url: "/logo.png",
+        url: "/opengraph.png",
         width: 800,
         height: 600,
         alt: "Valdery Alves - Desenvolvedor Full Stack",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Valdery Alves | Desenvolvedor Full Stack",
     description:
       "Desenvolvedor Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
-    images: ["/logo.png"],
+    images: ["/opengraph.png"],
   },
   keywords:
     "desenvolvimento web, desenvolvimento sob medida, sistemas personalizados, aplicativos, desenvolvimento premium, desenvolvimento profissional",
