@@ -91,7 +91,7 @@ export function Carousel({ children, className }: CarouselProps) {
         ))}
       </div>
 
-      {!isMobile && canScrollLeft && (
+      {canScrollLeft && (
         <Button
           variant="ghost"
           size="icon"
@@ -102,7 +102,7 @@ export function Carousel({ children, className }: CarouselProps) {
         </Button>
       )}
 
-      {!isMobile && canScrollRight && (
+      {canScrollRight && (
         <Button
           variant="ghost"
           size="icon"
