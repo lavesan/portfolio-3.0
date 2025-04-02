@@ -19,16 +19,20 @@ export function HeroSection() {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
                 {locale === "en" ? (
                   <>
-                    Websites, systems and{" "}
-                    <span className="text-emerald-600">apps</span> designed to{" "}
-                    <span className="text-emerald-600">scale</span> efficiently
-                    — <span className="text-emerald-600">no shortcuts</span>, no
+                    <span className="text-emerald-600">
+                      Websites, systems and apps
+                    </span>{" "}
+                    designed to <span className="text-emerald-600">scale</span>{" "}
+                    efficiently —{" "}
+                    <span className="text-emerald-600">no shortcuts</span>, no
                     workarounds.
                   </>
                 ) : (
                   <>
-                    Sites, sistemas e{" "}
-                    <span className="text-emerald-600">apps</span> pensados para{" "}
+                    <span className="text-emerald-600">
+                      Sites, sistemas e apps
+                    </span>{" "}
+                    pensados para{" "}
                     <span className="text-emerald-600">escalar</span> com
                     eficiência — sem amadorismo,{" "}
                     <span className="text-emerald-600">sem gambiarra</span>.
