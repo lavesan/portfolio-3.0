@@ -44,37 +44,45 @@ export function TrustedCompaniesSection() {
           {t("trustedCompanies.title")}
         </h2>
         <div className="relative overflow-hidden">
-          <div className="flex space-x-8 animate-infinite-scroll">
+          <div className="flex animate-infinite-scroll">
             {/* Primeiro conjunto de logos */}
-            {companies.map((company, index) => (
-              <div
-                key={`first-${index}`}
-                className="flex-shrink-0 w-32 h-32 flex items-center justify-center"
-              >
+            <div className="flex gap-8 items-center">
+              {companies.map((company, index) => (
                 <Image
+                  key={`first-${index}`}
                   src={company.logo}
                   alt={company.name}
-                  width={128}
-                  height={128}
-                  className="object-contain [filter:brightness(0)_saturate(100%)_invert(18%)_sepia(90%)_saturate(1000%)_hue-rotate(152deg)_brightness(94%)_contrast(101%)]"
+                  width={160}
+                  height={160}
+                  className={`object-contain ${
+                    company.name === "Justa" ||
+                    company.name === "Vivo" ||
+                    company.name === "Njord"
+                      ? "w-[120px] h-[120px]"
+                      : "w-[160px] h-[160px]"
+                  } [filter:brightness(0)_saturate(100%)_invert(18%)_sepia(90%)_saturate(1000%)_hue-rotate(152deg)_brightness(94%)_contrast(101%)]`}
                 />
-              </div>
-            ))}
-            {/* Segundo conjunto de logos (para criar o efeito infinito) */}
-            {companies.map((company, index) => (
-              <div
-                key={`second-${index}`}
-                className="flex-shrink-0 w-32 h-32 flex items-center justify-center"
-              >
+              ))}
+            </div>
+            {/* Segundo conjunto de logos (duplicado para loop contínuo) */}
+            <div className="flex gap-8 items-center">
+              {companies.map((company, index) => (
                 <Image
+                  key={`second-${index}`}
                   src={company.logo}
                   alt={company.name}
-                  width={128}
-                  height={128}
-                  className="object-contain [filter:brightness(0)_saturate(100%)_invert(18%)_sepia(90%)_saturate(1000%)_hue-rotate(152deg)_brightness(94%)_contrast(101%)]"
+                  width={160}
+                  height={160}
+                  className={`object-contain ${
+                    company.name === "Justa" ||
+                    company.name === "Vivo" ||
+                    company.name === "Njord"
+                      ? "w-[120px] h-[120px]"
+                      : "w-[160px] h-[160px]"
+                  } [filter:brightness(0)_saturate(100%)_invert(18%)_sepia(90%)_saturate(1000%)_hue-rotate(152deg)_brightness(94%)_contrast(101%)]`}
                 />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
