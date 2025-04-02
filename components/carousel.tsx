@@ -95,7 +95,7 @@ export function Carousel({ children, className }: CarouselProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm shadow-lg z-10"
+          className="absolute left-0 top-[65%] md:top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm shadow-lg z-10"
           onClick={() => scroll("left")}
         >
           <ChevronLeft className="h-4 w-4" />
@@ -106,7 +106,7 @@ export function Carousel({ children, className }: CarouselProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm shadow-lg z-10"
+          className="absolute right-0 top-[65%] md:top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm shadow-lg z-10"
           onClick={() => scroll("right")}
         >
           <ChevronRight className="h-4 w-4" />
