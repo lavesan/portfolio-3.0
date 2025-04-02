@@ -17,30 +17,30 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Valdery Alves | Desenvolvedor Full Stack",
+  title: "Valdery Alves | Desenvolvedor Senior Full Stack",
   description:
-    "Desenvolvedor Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
+    "Desenvolvedor Senior Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
   icons: {
     icon: "/icon.png",
   },
   openGraph: {
-    title: "Valdery Alves | Desenvolvedor Full Stack",
+    title: "Valdery Alves | Desenvolvedor Senior Full Stack",
     description:
-      "Desenvolvedor Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
+      "Desenvolvedor Senior Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
     images: [
       {
         url: "/opengraph.png",
         width: 800,
         height: 600,
-        alt: "Valdery Alves - Desenvolvedor Full Stack",
+        alt: "Valdery Alves - Desenvolvedor Senior Full Stack",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Valdery Alves | Desenvolvedor Full Stack",
+    title: "Valdery Alves | Desenvolvedor Senior Full Stack",
     description:
-      "Desenvolvedor Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
+      "Desenvolvedor Senior Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
     images: ["/opengraph.png"],
   },
   keywords:
