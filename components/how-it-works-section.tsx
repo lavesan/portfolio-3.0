@@ -145,7 +145,7 @@ export function HowItWorksSection({ forcedLocale }: HowItWorksSectionProps) {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-emerald-200/50 dark:bg-emerald-800/50 hidden md:block"></div>
+            <div className="absolute left-1/2 top-0 h-[calc(100%-12rem)] w-0.5 bg-emerald-200/50 dark:bg-emerald-800/50 hidden md:block"></div>
 
             <div className="space-y-8">
               {steps.map((step, index) => (
@@ -232,10 +232,7 @@ export function HowItWorksSection({ forcedLocale }: HowItWorksSectionProps) {
                 <p className="text-sm text-white mb-6">
                   {t("howItWorks.promo.discount")}
                 </p>
-                <CTAButton
-                  typebotUrl="https://sendbot.chat/valdery-alves-tm33byp"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white"
-                >
+                <CTAButton className="bg-emerald-600 hover:bg-emerald-700 text-white">
                   <span className="flex items-center gap-2">
                     <Rocket className="h-5 w-5" />
                     <span>{t("howItWorks.promo.cta")}</span>
