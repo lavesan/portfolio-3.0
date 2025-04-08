@@ -12,7 +12,7 @@ export function AboutSection() {
   return (
     <section id="about" className="py-20 futuristic-bg">
       <div className="absolute inset-0 z-0 grid-pattern"></div>
-      <div className="container mx-auto relative z-10 px-4">
+      <div className="container mx-auto relative z-10 px-6 sm:px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
           <div>
             <AnimatedSection>

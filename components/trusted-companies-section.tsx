@@ -38,8 +38,9 @@ export function TrustedCompaniesSection() {
   ];
 
   return (
-    <section className="py-12 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section className="py-20 futuristic-bg">
+      <div className="absolute inset-0 z-0 grid-pattern"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
           {t("trustedCompanies.title")}
         </h2>
