@@ -62,7 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.className} ${playfair.variable} dark`}
+      className={`${inter.variable} ${playfair.variable} dark`}
       suppressHydrationWarning
     >
       <head>
@@ -89,7 +89,7 @@ export default function RootLayout({
           fbq('track', 'PageView');`}
         </Script>
       </head>
-      <body>
+      <body className={`${inter.variable} ${playfair.variable} dark`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

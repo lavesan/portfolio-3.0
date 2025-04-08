@@ -96,7 +96,7 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
     "hero.title":
       "Desenvolvimento sob medida para negócios que não podem errar.",
     "hero.subtitle":
-      "Sites, sistemas e apps pensados para escalar com eficiência — sem amadorismo, sem gambiarra.",
+      "Desenvolvedor sênior com foco em performance, estrutura e resultado real.",
     "hero.description":
       "Com mais de 8 anos de experiência e passagens por Vivo, Accenture, Sicredi e startups, eu ajudo empresas a lançarem e manterem produtos digitais com foco em performance, estabilidade e resultado.",
     "hero.cta": "Solicitar Diagnóstico do Projeto",
@@ -238,7 +238,7 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
     "hero.title":
       "Custom development for businesses that cannot afford to make mistakes.",
     "hero.subtitle":
-      "Websites, systems, and apps designed to scale efficiently — without amateurism, without workarounds.",
+      "Senior developer focused on performance, structure, and real results.",
     "hero.description":
       "With over 8 years of experience and work at Vivo, Accenture, Sicredi, and startups, I help companies launch and maintain digital products with a focus on performance, stability, and results.",
     "hero.cta": "Request Project Diagnosis",
