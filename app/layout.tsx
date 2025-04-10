@@ -5,6 +5,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import { headers } from "next/headers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,39 +18,75 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 });
 
-export const metadata: Metadata = {
-  title: "Valdery Alves | Desenvolvedor Senior Full Stack",
-  description:
-    "Desenvolvedor Senior Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
-  icons: {
-    icon: "/icon.png",
-  },
-  openGraph: {
-    title: "Valdery Alves | Desenvolvedor Senior Full Stack",
-    description:
-      "Desenvolvedor Senior Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
-    images: [
-      {
-        url: "/opengraph.png",
-        width: 800,
-        height: 600,
-        alt: "Valdery Alves - Desenvolvedor Senior Full Stack",
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: string };
+}): Promise<Metadata> {
+  const isEnglish = params.lang === "en";
+
+  return {
+    title: isEnglish
+      ? "Valdery Alves | Senior Full Stack Developer"
+      : "Valdery Alves | Desenvolvedor Full Stack Sênior",
+    description: isEnglish
+      ? "Senior Full Stack Developer with 10+ years of experience. Specialized in React, Node.js, and scalable solutions."
+      : "Desenvolvedor Full Stack Sênior com 10+ anos de experiência. Especializado em React, Node.js e soluções escaláveis.",
+    icons: {
+      icon: "/icon.png",
+    },
+    openGraph: {
+      title: isEnglish
+        ? "Valdery Alves | Senior Full Stack Developer"
+        : "Valdery Alves | Desenvolvedor Full Stack Sênior",
+      description: isEnglish
+        ? "Senior Full Stack Developer with 10+ years of experience. Specialized in React, Node.js, and scalable solutions."
+        : "Desenvolvedor Full Stack Sênior com 10+ anos de experiência. Especializado em React, Node.js e soluções escaláveis.",
+      url: "https://valderyalves.com.br",
+      siteName: isEnglish
+        ? "Valdery Alves | Senior Full Stack Developer"
+        : "Valdery Alves | Desenvolvedor Full Stack Sênior",
+      images: [
+        {
+          url: "/opengraph.png",
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: isEnglish ? "en_US" : "pt_BR",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: isEnglish
+        ? "Valdery Alves | Senior Full Stack Developer"
+        : "Valdery Alves | Desenvolvedor Full Stack Sênior",
+      description: isEnglish
+        ? "Senior Full Stack Developer with 10+ years of experience. Specialized in React, Node.js, and scalable solutions."
+        : "Desenvolvedor Full Stack Sênior com 10+ anos de experiência. Especializado em React, Node.js e soluções escaláveis.",
+      images: ["/opengraph.png"],
+    },
+    keywords: isEnglish
+      ? "Full Stack Developer, React, Node.js, JavaScript, TypeScript, Web Development, Software Engineer, Senior Developer"
+      : "Desenvolvedor Full Stack, React, Node.js, JavaScript, TypeScript, Desenvolvimento Web, Engenheiro de Software, Desenvolvedor Sênior",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Valdery Alves | Desenvolvedor Senior Full Stack",
-    description:
-      "Desenvolvedor Senior Full Stack especializado em criar soluções web modernas e eficientes. Transforme sua ideia em realidade com expertise em React, Node.js e tecnologias cloud.",
-    images: ["/opengraph.png"],
-  },
-  keywords:
-    "desenvolvimento web, desenvolvimento sob medida, sistemas personalizados, aplicativos, desenvolvimento premium, desenvolvimento profissional",
-  robots: "index, follow",
-  authors: [{ name: "Valdery Alves" }],
-  generator: "v0.dev",
-};
+    },
+    authors: [{ name: "Valdery Alves" }],
+    generator: "v0.dev",
+    verification: {
+      google: "google-site-verification-code",
+    },
+  };
+}
 
 export default function RootLayout({
   children,
