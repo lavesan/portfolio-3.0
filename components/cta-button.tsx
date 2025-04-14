@@ -12,10 +12,19 @@ export function CTAButton({ children, className }: CTAButtonProps) {
   const pathname = usePathname();
   const url =
     pathname === "/en"
-      ? "https://sendbot.chat/valdery-alves-en-jzj3u4h"
-      : "https://sendbot.chat/valdery-alves-tm33byp";
+      ? "https://sendbot.chat/valdery-alves-en"
+      : "https://sendbot.chat/valdery-alves";
 
   const handleClick = (e: React.MouseEvent) => {
+    // Track conversion with Google Ads
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "conversion", {
+        send_to: "AW-16729447971/YEAvCI_XvbgaEKO8nKk-",
+        value: 1.0,
+        currency: "BRL",
+      });
+    }
+
     // Track event with Google Tag Manager
     if (typeof window !== "undefined" && window.dataLayer) {
       window.dataLayer.push({

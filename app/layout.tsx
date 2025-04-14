@@ -4,9 +4,6 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
-import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
-import { headers } from "next/headers";
 
 const inter = Inter({
   subsets: ["latin"],

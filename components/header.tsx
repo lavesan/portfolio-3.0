@@ -71,10 +71,7 @@ export function Header() {
             {/* <ThemeToggle /> */}
             {/* <LanguageToggle /> */}
 
-            <CTAButton
-              typebotUrl="https://sendbot.chat/valdery-alves-tm33byp"
-              className="py-1 sm:py-1.5 px-2 sm:px-3 text-xs sm:text-sm bg-[#047857] hover:bg-[#047857]/90"
-            >
+            <CTAButton className="py-1 sm:py-1.5 px-2 sm:px-3 text-xs sm:text-sm bg-[#047857] hover:bg-[#047857]/90">
               <span className="flex items-center gap-1 sm:gap-1.5">
                 <FileText className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                 <span className="hidden xs:inline">{t("header.contact")}</span>

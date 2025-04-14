@@ -49,10 +49,7 @@ export function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-start">
               <AnimatedSection delay={300}>
-                <CTAButton
-                  typebotUrl="https://sendbot.chat/valdery-alves-tm33byp"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white hero-cta-pulse"
-                >
+                <CTAButton className="bg-emerald-600 hover:bg-emerald-700 text-white hero-cta-pulse">
                   <span className="flex items-center gap-2">
                     <Rocket className="h-5 w-5" />
                     <span>{t("hero.cta")}</span>

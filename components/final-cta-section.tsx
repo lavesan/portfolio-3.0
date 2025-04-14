@@ -10,7 +10,10 @@ export function FinalCTASection() {
 
   return (
     <section className="py-20 futuristic-bg">
-      <div className="absolute inset-0 z-0 grid-pattern"></div>
+      <div
+        className="absolute inset-0 z-0 grid-pattern"
+        data-testid="grid-pattern"
+      ></div>
       <div className="container mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <AnimatedSection>
@@ -32,12 +35,12 @@ export function FinalCTASection() {
           </AnimatedSection>
 
           <AnimatedSection delay={300}>
-            <CTAButton
-              typebotUrl="https://sendbot.chat/valdery-alves-tm33byp"
-              className="mx-auto mt-8 bg-[#047857] hover:bg-[#047857]/90"
-            >
+            <CTAButton className="mx-auto mt-8 bg-[#047857] hover:bg-[#047857]/90">
               <span className="flex items-center gap-2">
-                <FileText className="h-4 w-4 sm:h-5 sm:w-5" />
+                <FileText
+                  className="h-4 w-4 sm:h-5 sm:w-5"
+                  data-testid="file-text-icon"
+                />
                 <span className="text-sm sm:text-base">{t("cta.button")}</span>
               </span>
             </CTAButton>
