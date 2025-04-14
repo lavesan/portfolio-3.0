@@ -80,7 +80,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX";
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${gtmId}`}
@@ -91,33 +90,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${gtmId}', {
-              page_path: window.location.pathname,
-            });
-          `}
-        </Script>
-        {/* Route change tracking for Google Analytics */}
-        <Script id="ga-route-tracking" strategy="afterInteractive">
-          {`
-            if (typeof window !== 'undefined') {
-              window.previousPath = window.location.pathname;
-              const handleRouteChange = () => {
-                const newPath = window.location.pathname;
-                if (newPath !== window.previousPath) {
-                  gtag('config', '${gtmId}', {
-                    page_path: newPath,
-                  });
-                  window.previousPath = newPath;
-                }
-              };
-
-              window.addEventListener('popstate', handleRouteChange);
-              const pushState = history.pushState;
-              history.pushState = function() {
-                pushState.apply(history, arguments);
-                handleRouteChange();
-              };
-            }
+            gtag('config', '${gtmId}');
           `}
         </Script>
         {/* Facebook Pixel */}
@@ -143,6 +116,15 @@ export default function RootLayout({
             style={{ display: "none" }}
             src={`https://www.facebook.com/tr?id=${fbPixelId}&ev=PageView&noscript=1`}
           />
+        </noscript>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
         </noscript>
 
         <ThemeProvider

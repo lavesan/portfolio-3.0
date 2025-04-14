@@ -16,11 +16,25 @@ export function CTAButton({ children, className }: CTAButtonProps) {
       : "https://sendbot.chat/valdery-alves";
 
   const handleClick = (e: React.MouseEvent) => {
+    // Google Analytics
+    // if (typeof window !== "undefined" && (window as any).gtag) {
+    //   (window as any).gtag("event", "begin_checkout", {
+    //     currency: "BRL",
+    //     value: plan === "mensal" ? 97 : 167,
+    //     items: [
+    //       {
+    //         item_name: plan === "mensal" ? "Plano Mensal" : "Plano Bimestral",
+    //         price: plan === "mensal" ? 97 : 167,
+    //         quantity: 1,
+    //       },
+    //     ],
+    //   });
+    // }
     // Track conversion with Google Ads
     if (typeof window !== "undefined" && (window as any).gtag) {
       (window as any).gtag("event", "conversion", {
         send_to: "AW-16729447971/YEAvCI_XvbgaEKO8nKk-",
-        value: 1.0,
+        value: 197.0,
         currency: "BRL",
       });
     }
