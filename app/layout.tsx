@@ -70,7 +70,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // IDs das ferramentas de analytics
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX";
   const fbPixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "XXXXXXXXXXXXXXXXX";
 
@@ -81,15 +80,46 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Google Tag Manager */}
-        <Script id="gtm" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${gtmId}');`}
+        const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX";
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${gtmId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtmId}', {
+              page_path: window.location.pathname,
+            });
+          `}
         </Script>
+        {/* Route change tracking for Google Analytics */}
+        <Script id="ga-route-tracking" strategy="afterInteractive">
+          {`
+            if (typeof window !== 'undefined') {
+              window.previousPath = window.location.pathname;
+              const handleRouteChange = () => {
+                const newPath = window.location.pathname;
+                if (newPath !== window.previousPath) {
+                  gtag('config', '${gtmId}', {
+                    page_path: newPath,
+                  });
+                  window.previousPath = newPath;
+                }
+              };
 
+              window.addEventListener('popstate', handleRouteChange);
+              const pushState = history.pushState;
+              history.pushState = function() {
+                pushState.apply(history, arguments);
+                handleRouteChange();
+              };
+            }
+          `}
+        </Script>
         {/* Facebook Pixel */}
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`!function(f,b,e,v,n,t,s)
@@ -105,16 +135,6 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${inter.variable} ${playfair.variable} dark`}>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
-
         {/* Facebook Pixel (noscript) */}
         <noscript>
           <img
@@ -137,5 +157,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-import "./globals.css";
