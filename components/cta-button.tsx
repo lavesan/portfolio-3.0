@@ -30,10 +30,11 @@ export function CTAButton({ children, className }: CTAButtonProps) {
     //     ],
     //   });
     // }
+
     // Track conversion with Google Ads
     if (typeof window !== "undefined" && (window as any).gtag) {
       (window as any).gtag("event", "conversion", {
-        send_to: "AW-16729447971/YEAvCI_XvbgaEKO8nKk-",
+        send_to: `${process.env.NEXT_PUBLIC_GTM_ID}/YEAvCI_XvbgaEKO8nKk-`,
         value: 197.0,
         currency: "BRL",
       });
