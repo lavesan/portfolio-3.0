@@ -238,7 +238,7 @@ export const translations: Record<Locale, Record<TranslationKey, string>> = {
     "hero.title":
       "Custom development for businesses that cannot afford to make mistakes.",
     "hero.subtitle":
-      "Senior developer focused on performance, structure, and real results.",
+      "Senior Sofware Engineer focused on performance, structure, and real results.",
     "hero.description":
       "With over 8 years of experience and work at Vivo, Accenture, Sicredi, and startups, I help companies launch and maintain digital products with a focus on performance, stability, and results.",
     "hero.cta": "Request Project Diagnosis",

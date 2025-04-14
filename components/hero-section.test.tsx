@@ -7,7 +7,7 @@ jest.mock("@/hooks/use-translations", () => ({
     t: (key: string) => {
       const mockTranslations = {
         "hero.subtitle":
-          "Senior developer focused on performance, structure, and real results.",
+          "Senior Sofware Engineer focused on performance, structure, and real results.",
         "hero.cta": "Contact",
       };
       return mockTranslations[key as keyof typeof mockTranslations];
@@ -33,7 +33,7 @@ describe("HeroSection", () => {
     // Check subtitle
     expect(
       screen.getByText(
-        "Senior developer focused on performance, structure, and real results."
+        "Senior Sofware Engineer focused on performance, structure, and real results."
       )
     ).toBeInTheDocument();
 
